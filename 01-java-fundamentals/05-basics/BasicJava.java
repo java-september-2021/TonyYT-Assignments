@@ -60,11 +60,21 @@ public class BasicJava {
     // maximum value in the array. Your method should also work with a given array
     // that has all negative numbers (e.g. [-3, -5, -7]), or even a mix of positive
     // numbers, negative numbers and zero.
-    public int findMax(int[] arr) {
-        int temp = arr[0];
-        for (int q = 1; q < arr.length; q++) {
-            if (temp < arr[q]) {
-                temp = arr[q];
+    public static int findMax(int[] arr) {
+        int currentMax = Integer.MIN_VALUE;
+        for (int element:arr) {
+            if (element>currentMax) {
+                currentMax = element;
+            }
+        }
+        return currentMax;
+    }
+
+    public static int findMin (int[] arr){
+        int temp = Integer.MAX_VALUE;
+        for (int element :arr){
+            if(element<temp){
+                temp = element;
             }
         }
         return temp;
@@ -152,19 +162,23 @@ public class BasicJava {
     // average of the values in the array. The returned array should be three
     // elements long and contain: [MAXNUM, MINNUM, AVG]
 
-    public static float[] maxMinAve(int[] arr) {
+    public static ArrayList<Float> maxMinAve(int[] arr) {
         float sum = 0;
         for (int w = 0; w < arr.length; w++) {
             sum += arr[w];
         }
         float ave = sum / arr.length;
         // List<int[]> arrAsList = Arrays.asList(arr);
-        int min = Collections.min(Arrays.asList(arr));
-        int max = Collections.max(Arrays.asList(arr));
+        int min = BasicJava.findMin(arr);
+        int max = BasicJava.findMax(arr);
 
-        float[] output = { (float) max, (float) min, ave };
+        ArrayList<Float> output = new ArrayList<Float>();
+        output.add((float) min);
+        output.add((float) max);;
+        output.add(ave);
 
-        System.out.println(Arrays.toString(output));
+        //System.out.println(Arrays.toString(output));
+        return output;
     }
 
     // Shifting the Values in the Array

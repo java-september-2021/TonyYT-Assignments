@@ -31,7 +31,7 @@ public class TestBasicJava {
         //System.out.println(numbers());
         System.out.println("-------------------------"+ "\n");
         int[] testermaxMinAve = {1, 5, 10, -2};
-        tester.maxMinAve(testermaxMinAve);
+        System.out.println(tester.maxMinAve(testermaxMinAve));
         System.out.println("-------------------------"+ "\n");
         int[] testershifting = {1, 5, 10, 7, -2};
         tester.shifting(testershifting);
