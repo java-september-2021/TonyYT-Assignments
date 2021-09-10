@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-//import java.lang.*;
+import java.util.Random;
 
 
 public class Execptions {
@@ -12,13 +12,13 @@ public class Execptions {
             //myList.add("48");
             myList.add("Goodbye World");
 
-            try {
-                for(int i = 0;i<myList.size();i++){
-                int castedValue = Integer.parseInt((String) myList.get(i));
-                System.out.println(castedValue);
-            }
-            } catch(Exception e){
-                System.out.println(e);
+            for(int i = 0; i < myList.size(); i++) {
+                try {
+                    Integer castedValue = (Integer) myList.get(i);
+                    System.out.println(castedValue);
+                } catch(ClassCastException e ) {
+                    System.out.println(e);
+                }
             }
         }
 
