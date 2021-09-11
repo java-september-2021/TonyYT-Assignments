@@ -9,8 +9,10 @@ public class ProjectTest {
 
         tester2.setProjectdescription("This is the Description of Project 2");
         System.out.println(tester2.getProjectDescription());
-        
+
         tester3.setInitialCost(5000.0);
         tester3.elevatorPitch();
+
+
     }
 }
