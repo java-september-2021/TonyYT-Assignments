@@ -95,15 +95,21 @@ public class SinglyLinkedList {
             return;
         } else {
             Node runner = this.head;
-            int counter = 0;
-            while (counter != removeAtNodeNum){
-                runner = runner.next;
-                counter +=1;
+            int counter = 1;
+            //if it is the head
+            if(removeAtNodeNum ==1){
+                runner.next = runner.next.next
+                return;
+            } else {
+                while (counter != removeAtNodeNum-1){
+                    runner = runner.next;
+                    counter +=1;
+                }
+                int removeVal = runner.next.value;
+                runner.next = runner.next.next;
+                System.out.println("The node #" + removeAtNodeNum +"with the value " + removeVal+ " has been removed");
+                return;
             }
-            int currentVal = runner.value;
-            runner.next = runner.next.next;
-            System.out.println("The node #" + removeAtNodeNum +"with the value " + currentVal+ " has been removed");
-            return;
         }
     }
 
