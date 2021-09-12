@@ -10,9 +10,18 @@ public class ProjectTest {
         tester2.setProjectdescription("This is the Description of Project 2");
         System.out.println(tester2.getProjectDescription());
 
+        tester2.setInitialCost(3000.0);
         tester3.setInitialCost(5000.0);
         tester3.elevatorPitch();
 
+        Portfolio testerPorfolio = new Portfolio();
+        testerPorfolio.addToPortfolio(tester1);
+        System.out.println(testerPorfolio.getPortfolio());
+        System.out.println(testerPorfolio.getPortfolioCost());
 
+        testerPorfolio.addToPortfolio(tester2);
+        testerPorfolio.getPortfolio();
+        testerPorfolio.getPortfolioCost();
+        testerPorfolio.showPortfolio();
     }
 }
