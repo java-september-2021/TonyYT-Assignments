@@ -59,7 +59,7 @@ public class SinglyLinkedList {
         }
     }
 
-    //● Implement a find(int) method that will return the first node with the value in the parameter
+    //Implement a find(int) method that will return the first node with the value in the parameter
     public void find(int findValue){
         //edge case: not list
         if (this.head == null){
@@ -98,7 +98,7 @@ public class SinglyLinkedList {
             int counter = 1;
             //if it is the head
             if(removeAtNodeNum ==1){
-                runner.next = runner.next.next
+                runner.next = runner.next.next;
                 return;
             } else {
                 while (counter != removeAtNodeNum-1){

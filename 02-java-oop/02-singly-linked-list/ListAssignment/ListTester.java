@@ -1,5 +1,5 @@
 public class ListTester {
-    //● Create a ListTester class like the above.
+    //Create a ListTester class like the above.
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.add(3);
