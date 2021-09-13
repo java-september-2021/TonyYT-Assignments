@@ -59,7 +59,7 @@ public class SinglyLinkedList {
         }
     }
 
-    //● Implement a find(int) method that will return the first node with the value in the parameter
+    //Implement a find(int) method that will return the first node with the value in the parameter
     public void find(int findValue){
         //edge case: not list
         if (this.head == null){
@@ -96,14 +96,26 @@ public class SinglyLinkedList {
         } else {
             Node runner = this.head;
             int counter = 1;
+<<<<<<< HEAD
             while (counter != removeAtNodeNum){
                 runner = runner.next;
                 counter +=1;
+=======
+            //if it is the head
+            if(removeAtNodeNum ==1){
+                runner.next = runner.next.next;
+                return;
+            } else {
+                while (counter != removeAtNodeNum-1){
+                    runner = runner.next;
+                    counter +=1;
+                }
+                int removeVal = runner.next.value;
+                runner.next = runner.next.next;
+                System.out.println("The node #" + removeAtNodeNum +"with the value " + removeVal+ " has been removed");
+                return;
+>>>>>>> 6db2f44ce17e31898661dfcef5b2c0329b26f65a
             }
-            int currentVal = runner.value;
-            runner.next = runner.next.next;
-            System.out.println("The node #" + removeAtNodeNum +"with the value " + currentVal+ " has been removed");
-            return;
         }
     }
 
