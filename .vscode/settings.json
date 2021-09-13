@@ -1,12 +1,13 @@
 {
     "java.project.sourcePaths": [
         "02-java-oop/04-zoo-keeper-pt2",
+        "02-java-oop/03-zoo-keeper-pt1",
         "02-java-oop/02-singly-linked-list/ListAssignment",
         "02-java-oop/01-project-class",
         "01-java-fundamentals/08-lists-of-exceptions",
         "01-java-fundamentals/07-map-of-the-hashmatique",
         "01-java-fundamentals/06-puzzling",
         "01-java-fundamentals/05-basics",
-        "02-java-oop/03-zoo-keeper-pt1"
+        "02-java-oop/05-object-master-pt1"
     ]
 }
