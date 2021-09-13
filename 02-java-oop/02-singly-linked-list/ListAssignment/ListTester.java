@@ -15,6 +15,7 @@ public class ListTester {
         sll.find(3);
         sll.find(5);
         sll.find(20);
-        sll.removeAt(4);
+        sll.removeAt(1);
+        sll.removeAt(3);
     }
 }

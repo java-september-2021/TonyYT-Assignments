@@ -95,7 +95,7 @@ public class SinglyLinkedList {
             return;
         } else {
             Node runner = this.head;
-            int counter = 0;
+            int counter = 1;
             while (counter != removeAtNodeNum){
                 runner = runner.next;
                 counter +=1;
