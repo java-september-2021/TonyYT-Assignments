@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import jdk.swing.interop.DispatcherWrapper;
-
 public class BankAccount {
     // Create a BankAccount class.
     // The class should have the following attributes: (double) checking balance,
