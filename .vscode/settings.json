@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
+        "02-java-oop/09-phone",
         "02-java-oop/07-bank-account",
         "02-java-oop/06-object-master-p2",
         "02-java-oop/05-object-master-pt1",
@@ -11,6 +12,6 @@
         "01-java-fundamentals/07-map-of-the-hashmatique",
         "01-java-fundamentals/06-puzzling",
         "01-java-fundamentals/05-basics",
-        "02-java-oop/09-phone"
+        "02-java-oop/10-calculator-i"
     ]
 }
