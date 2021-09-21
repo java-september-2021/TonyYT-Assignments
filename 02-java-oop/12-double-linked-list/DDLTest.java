@@ -45,7 +45,18 @@ public class DDLTest {
         InsertDDL.push(30);
         InsertDDL.push(40);
         InsertDDL.printValuesForward();
-        InsertDDL.insertAt(Node(35), 2);
+        Node testerNode = new Node (35);
+        InsertDDL.insertAt(testerNode, 2);
+
+        DDL removedDDL = new DDL();
+        removedDDL.push(10);
+        removedDDL.push(20);
+        removedDDL.push(30);
+        removedDDL.push(40);
+        removedDDL.printValuesForward();   
+        removedDDL.removeAt(2);
+        removedDDL.printValuesForward();  
+
     }
 
 }

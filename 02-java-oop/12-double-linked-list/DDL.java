@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class DDL {
 
     public Node head;
@@ -155,8 +156,68 @@ public class DDL {
     // void removeAt(int index): This method removes a node at an index. For
     // example, let's say that we have 3 nodes in our list. If we call removeAt(1)
     // the middle node is removed. (head is index 0)
-
+    public void removeAt(int index){
+        Node newNode = new Node(index);
+        Node runner = this.head;
+        int count = 0;
+        //edge case: the list is empty
+        if(this.head == null){
+            System.out.println("The list is empty, nothing to be removed!!");
+        } else {
+            while(runner != null){
+                if(count == index){
+                    newNode.previous = runner;
+                    newNode.next = runner.next;
+                    runner.next.previous = newNode;
+                    runner.next = newNode;
+                }
+                count +=1;
+                runner = runner.next;
+            }
+        }
+    }
     // boolean isPalindrome(): This method returns a boolean whether the node is a
     // palindrome or not. Return true if it is a palindrome, else, return false.
+    public boolean isPalindrome(){
+        //edge case: if the list is empty
+        Node runner = this.head;
+        //int count = 0;
+
+        if(this.head == null){
+            System.out.println("the list is empty, there is no palindrome list here!!!");
+            return false;
+        } else {
+            //generate a arraylist
+            ArrayList<Integer> nodeList = new ArrayList<Integer>();
+            //find out how many node in the list
+            while(runner != null){
+                nodeList.add(runner.val);
+                runner = runner.next;
+            }
+            int headRunner = 0;
+            int tailRunner = nodeList.size()-1;
+            if(nodeList.size() %2 ==1){
+                while(nodeList.get(headRunner) == nodeList.get(tailRunner) && headRunner< (nodeList.size()-1)/2){
+                    headRunner +=1;
+                    tailRunner -=1;
+                }
+                if(headRunner == tailRunner -2){
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (nodeList.size() %2 ==0){
+                while(nodeList.get(headRunner) == nodeList.get(tailRunner) && headRunner< (nodeList.size()/2)){
+                    headRunner +=1;
+                    tailRunner -=1;
+                }
+                if(headRunner == tailRunner -1){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
 
 }
