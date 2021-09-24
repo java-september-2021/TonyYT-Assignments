@@ -5,19 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
+		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.TonyYTan.Strings</groupId>
-	<artifactId>Strings</artifactId>
+	<groupId>com.TonyYTan.Routing</groupId>
+	<artifactId>Routing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>Strings</name>
-<<<<<<< HEAD
-	<description>Strings</description>
-=======
-	<description>Strings - Hellow World Assignament</description>
->>>>>>> 2109eacf05dbe4fcf6ef9e2338b16e5352015130
+	<name>Routing</name>
+	<description>Strings - ablums</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -39,22 +34,9 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		        <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-        <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jstl</artifactId>
-        </dependency>
 	</dependencies>
 
 	<build>
