@@ -15,7 +15,7 @@
 <title></title>
 </head>
 <body>
-<h1>Date Template</h1>
-<h1>Time Template</h1>
+<h1><a href = "/date">Date Template</a></h1>
+<h1><a href = "/time">Time Tempalte</a></h1>
 </body>
 </html>
