@@ -8,6 +8,6 @@
 <title>Hello Human</title>
 </head>
 <body>
-<h1>Hello <c:out value="${theNmae}"/></h1>
+<h1>Hello <c:out value="${name}"/></h1>
 </body>
 </html>
