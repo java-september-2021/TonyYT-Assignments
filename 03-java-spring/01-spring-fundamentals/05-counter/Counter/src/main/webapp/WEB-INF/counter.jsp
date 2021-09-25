@@ -8,8 +8,8 @@
 <title>Current Visit Count</title>
 </head>
 <body>
-<h1>You have visited <a href = "">http://your_server</a><c:out value = "${countShow}"/> times.</h1>
-<h1><a href = "">Test another visit?</a> </h1>
+<h1>You have visited localhost:8080 <c:out value = "${countShow}"/> times.</h1>
+<h1><a href = "/">Test another visit?</a> <a href = "/reset">Reset</a> </h1>
 
 </body>
 </html>
