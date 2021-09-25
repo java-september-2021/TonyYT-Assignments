@@ -11,6 +11,8 @@
 <h1>You have visited localhost:8080 <c:out value = "${countShow}"/> times.</h1>
 <h1><a href = "/">Test another visit?</a> <a href = "/reset">Reset</a> </h1>
 
+<h1>you have visited localhost_8080/increment2 <c:out value = "${thisCount}"/> times.</h1>
+
 </body>
 </html>
 
