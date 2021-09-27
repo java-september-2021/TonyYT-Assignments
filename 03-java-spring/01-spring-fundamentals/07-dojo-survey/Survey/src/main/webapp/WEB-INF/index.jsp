@@ -14,10 +14,10 @@
 <input type = "text" id = "name" name= "name">
 <label for = "">DoJo Location </label>
 <select class ="select" name = "locationSelect">
-	<option value = "SAF">San Francisco</option>
-	<option value = "SEA">Seattle</option>
-	<option value = "DC">Washington, D.C.</option>
-	<option value = "LA">Los Angel</option>
+	<option value = "San Francisco">San Francisco</option>
+	<option value = "Seattle">Seattle</option>
+	<option value = "Washington, D.C.">Washington, D.C.</option>
+	<option value = "Los Angel">Los Angel</option>
 </select>
 <select class = "select" name= "language">
 	<option value = "java"> Java</option>

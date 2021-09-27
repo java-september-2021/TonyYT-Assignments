@@ -11,10 +11,10 @@
 
 <div class = "main">
 <h1>Submitted Info</h1>
-<h2>Name: <c:out value = "name"/></h2>
-<h2> Dojo Location: <c:out value = "DoJoLocation" /></h2>
-<h2>Favorite Language:<c:out value = "language" /></h2>
-<h2>Comment: <c:out value = "comment"/></h2>
+<h2>Name: <c:out value = "${name}"/></h2>
+<h2> Dojo Location: <c:out value = "${DoJoLocation}" /></h2>
+<h2>Favorite Language:<c:out value = "${language}" /></h2>
+<h2>Comment: <c:out value = "${comment}"/></h2>
 
 <input type ="submit" value = "goback">
 </div>
