@@ -11,8 +11,7 @@
 <body>
 
 <h1>
-<label for = "goldCount">Your Gold: </label>
-<input type ="text" id = "gold" name = "goldCount">
+Your Gold: <c:out value="${goldCount}"></c:out>
 </h1>
 
 
