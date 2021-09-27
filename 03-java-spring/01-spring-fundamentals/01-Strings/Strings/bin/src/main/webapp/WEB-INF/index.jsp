@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Hello Human</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Hello <c:out value="${name}"/> <c:out value = "${lastName}"/></h1>
+
 </body>
 </html>
-

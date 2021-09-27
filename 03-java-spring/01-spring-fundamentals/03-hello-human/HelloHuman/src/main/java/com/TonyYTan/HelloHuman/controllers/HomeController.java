@@ -19,8 +19,10 @@ public class HomeController {
 //}
 
 @RequestMapping("/")
-	public String index(@RequestParam(value = "name", required = false, defaultValue = "Human") String name, Model viewModel){
+	public String index(@RequestParam(value = "name", required = false, defaultValue = "Human") String name,@RequestParam(value = "lastName",required = false) String lastName, @RequestParam(value = "time", required = false) String times, Model viewModel){
 		viewModel.addAttribute("name", name);
+		viewModel.addAttribute("lastName", lastName);
+		viewModel.addAttribute("times", times);
 		return "index.jsp";
 	}
 
