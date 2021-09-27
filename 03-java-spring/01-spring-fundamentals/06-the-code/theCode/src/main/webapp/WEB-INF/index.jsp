@@ -6,11 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Select Code</title>
+<link rel = "stylesheet" href = "/css.style.css">
 </head>
 <body>
 <div>
+<p class="error">${errorMessage}</p>
+<form method= "POST" action = "/code">
 <h1>what is the code?</h1>
-<from method= "POST" action = "/">
 <input type = "text" id = "input" name = "inputCode">
 <input type = "submit" value = "submit">
 </div>
