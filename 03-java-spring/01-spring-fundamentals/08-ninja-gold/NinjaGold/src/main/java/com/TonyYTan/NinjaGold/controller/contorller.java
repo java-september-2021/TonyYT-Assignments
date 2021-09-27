@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class contorller {
-	@RequestMapping("/gold")
-	public String index(@RequestParam(value= "farmGold") String farmGold, @RequestParam(value = "caveGold") String caveGold, @RequestParam(value = "houseGold") String houseGold, @RequestParam(value="casinoGold") String casinoGold, Model viewModel) {
-		
+	@RequestMapping("/")
+	public String index(@RequestParam(value= "farmGold", required = false) String farmGold, @RequestParam(value = "caveGold", required = false) String caveGold, @RequestParam(value = "houseGold", required = false) String houseGold, @RequestParam(value="casinoGold", required = false) String casinoGold, @RequestParam(value = "goldCount", required = false, defaultValue = "0") int goldCount, Model viewModel) {
 		return "index.jsp";
 	}
 }

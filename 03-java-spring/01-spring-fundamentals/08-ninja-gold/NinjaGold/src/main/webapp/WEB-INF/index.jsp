@@ -11,8 +11,8 @@
 <body>
 
 <h1>
-<label for = "goldNum">Your Gold: </label>
-<input type ="text" id = "gold" name = "goldNum">
+<label for = "goldCount">Your Gold: </label>
+<input type ="text" id = "gold" name = "goldCount">
 </h1>
 
 
