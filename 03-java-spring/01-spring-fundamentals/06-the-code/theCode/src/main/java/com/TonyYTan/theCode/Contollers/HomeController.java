@@ -15,6 +15,7 @@ public class HomeController {
 		return "index.jsp";
 	}
 	
+	
 	@RequestMapping(value = "/code", method = RequestMethod.POST)
 	public String home(@RequestParam(value = "inputCode") String inputCode, Model viewModel, RedirectAttributes redirectAttr) {
 		if(inputCode.equals("bushido")) {
