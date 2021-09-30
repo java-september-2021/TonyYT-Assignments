@@ -35,7 +35,7 @@ public class contorller {
 	public String findGold(@RequestParam("building") String building, HttpSession session) {
 		Random r = new Random();
 		int goldThisTurn = 0;
-		ArrayList<String> actArray = (ArrayList<String>)session.getAttribute("actArray");
+		ArrayList<String> actArray = (ArrayList<String>) session.getAttribute("activities");
 		if(building.equals("farm")) {
 			goldThisTurn = r.nextInt((20 - 10) + 1) + 10;
 			actArray.add(String.format("You entered a s% and earned d% gold ", building, goldThisTurn));
