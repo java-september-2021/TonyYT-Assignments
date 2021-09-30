@@ -55,8 +55,12 @@ Your Gold: <c:out value="${goldNum}"></c:out>
 </div>
 
 
-<h2><label for = "activities">Activities:</label></h2>
-<input class = "activities" type="text" name = "activities">
+<h2>Activities</h2>
+<div class = "activities">
+<c:forEach items = "${actArray}" var = "act">
+<p>"${act}"</p>
+</c:forEach>
+</div>
 
 </div>
 

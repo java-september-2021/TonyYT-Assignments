@@ -35,21 +35,30 @@ public class contorller {
 	public String findGold(@RequestParam("building") String building, HttpSession session) {
 		Random r = new Random();
 		int goldThisTurn = 0;
+		ArrayList<String> actArray = (ArrayList<String>)session.getAttribute("actArray");
 		if(building.equals("farm")) {
 			goldThisTurn = r.nextInt((20 - 10) + 1) + 10;
+			actArray.add(String.format("You entered a s% and earned d% gold ", building, goldThisTurn));
 		} else if(building.equals("cave")){
 			goldThisTurn = r.nextInt((10 - 5) + 1) + 5;
+			actArray.add(String.format("You entered a s% and earned d% gold ", building, goldThisTurn));
 		} else if(building.equals("house")){
 			goldThisTurn = r.nextInt((5 - 2) + 1)+ 2;
+			actArray.add(String.format("You entered a s% and earned d% gold ", building, goldThisTurn));
 		} else if(building.equals("casino")){
 			goldThisTurn = r.nextInt((50 - (-50))+1) -50;
-			System.out.println(goldThisTurn);
+			if(goldThisTurn < 0 ) {
+				actArray.add(String.format("You entered a s% and lose d% gold ", building, goldThisTurn));
+			} else {
+				actArray.add(String.format("You entered a s% and earned d% gold ", building, goldThisTurn));
+			}
 		} else {
 			System.out.println("does not exist!");
 		}
 		int gold = (int)session.getAttribute("goldNum");
 		int goldNum = gold += goldThisTurn;
 		session.setAttribute("goldNum", goldNum);
+		session.setAttribute("activities", actArray);
 		return "redirect:/";
 	}
 
