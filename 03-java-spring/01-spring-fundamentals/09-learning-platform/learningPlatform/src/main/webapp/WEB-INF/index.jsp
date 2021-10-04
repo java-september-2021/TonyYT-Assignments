@@ -8,15 +8,16 @@
 <title>Fortran Dashboard</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <div class = "head">
 	<h1>Fortran</h1>
-	<ul>
-		<li>Set up</li>
-		<li>Forms</li>
-		<li>Cards</li>
-		<li>Advanced</li>
-		<li>Binary</li>
+	<ul class = "list">
+		<li> Set up |</li>
+		<li> Forms |</li>
+		<li> Cards |</li>
+		<li> Advanced |</li>
+		<li> Binary </li>
 	</ul>
 
 </div>

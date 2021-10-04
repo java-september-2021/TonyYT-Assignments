@@ -17,7 +17,9 @@ public class controller {
 			return "lession.jsp";
 		} else if (fileType.equals("0483")) {
 			return "assignment.jsp";
-		} 
+		} else if (fileType.equals("0000")) {
+			return "quiz.jsp";
+		}
 		
 		return "index.jsp";
 	}

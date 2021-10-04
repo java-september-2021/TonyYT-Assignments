@@ -6,16 +6,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Fortran Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <div class = "head">
 	<h1>Fortran</h1>
-	<ul>
-		<li>Set up</li>
-		<li>Forms</li>
-		<li>Cards</li>
-		<li>Advanced</li>
-		<li>Binary</li>
+	<ul class = "list">
+		<li> Set up |</li>
+		<li> Forms |</li>
+		<li> Cards |</li>
+		<li> Advanced |</li>
+		<li> Binary </li>
 	</ul>
 
 </div>
@@ -23,7 +25,7 @@
 <input type="checkbox" id="checkbox1" name="checkbox" value="chekcbox">
 <label for="checkbox"> Assignment Complete!</label><br>
 <div>
-<input type = "text" id = "textbox" name = "textboxhere" placeholder = "The goal of this assginmet it to ..." >
+<input type = "text" class = "textbox" name = "textboxhere" placeholder = "This is the Quiz.jsp file..." >
 </div>
 
 </body>
