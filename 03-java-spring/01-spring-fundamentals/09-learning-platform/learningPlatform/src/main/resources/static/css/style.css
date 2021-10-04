@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+.head {
+	display: inline-block;
+}
+
+.class {
+	width: 700px;
+	height:200px;
+}
