@@ -17,16 +17,15 @@ public class contorller {
 	public String index(HttpSession session, Model viewModel) {
 		if(session.getAttribute("goldNum") ==null) {
 			session.setAttribute("goldNum", 0);
-		} else {
-			viewModel.addAttribute("goldNum", session.getAttribute("goldNum"));
-		}
-		
-		ArrayList<String> actArray = new ArrayList<String>();
+		} 
+			
+		ArrayList<String> activs = new ArrayList<String>();
 		if(session.getAttribute("activities")== null) {
-			session.setAttribute("activities", actArray);
+			session.setAttribute("activities", activs);
 		}
 		
-		viewModel.addAttribute("activities", session.getAttribute("actArray"));
+		viewModel.addAttribute("goldNum", session.getAttribute("goldNum"));
+		viewModel.addAttribute("activities", session.getAttribute("activities"));
 		return "index.jsp";
 	}
 	
