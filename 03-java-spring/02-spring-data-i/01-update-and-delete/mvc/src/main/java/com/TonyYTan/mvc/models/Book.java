@@ -43,7 +43,7 @@ public class Book {
     
     public Book() {
     }
-    public Book(String title, String desc, String lang, int pages) {
+    public Book(String title, String desc, String lang, Integer pages) {
         this.title = title;
         this.description = desc;
         this.language = lang;
@@ -58,5 +58,23 @@ public class Book {
     @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
-    }
+    }	
+	public void setTitle(String title) {
+		// TODO Auto-generated method stub
+		this.title = title;
+	}
+	public void setDescription(String desc) {
+		// TODO Auto-generated method stub
+		this.description = desc;
+	}
+	public void setLanguage(String lang) {
+		// TODO Auto-generated method stub
+		this.language = lang;
+	}
+	public void setNumberOfPages(Integer numOfPages) {
+		// TODO Auto-generated method stub
+		this.numberOfPages = numOfPages;
+	}
+	
+	
 }
