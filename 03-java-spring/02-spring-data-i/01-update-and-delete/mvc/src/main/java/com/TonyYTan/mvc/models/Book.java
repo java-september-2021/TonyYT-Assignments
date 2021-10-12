@@ -75,6 +75,24 @@ public class Book {
 		// TODO Auto-generated method stub
 		this.numberOfPages = numOfPages;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public Integer getNumberOfPages() {
+		return numberOfPages;
+	}
+	public Long getId() {
+		return id;
+	}
+
+	
+	
 	
 	
 }
