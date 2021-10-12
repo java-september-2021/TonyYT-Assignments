@@ -20,6 +20,7 @@ public class BookService {
     }
     // returns all the books
     public List<Book> allBooks() {
+    	System.out.println("finalAll()");
         return bookRepository.findAll();
     }
     // creates a book
@@ -28,12 +29,13 @@ public class BookService {
     }
     // retrieves a book
     public Book findBook(Long id) {
-        Optional<Book> optionalBook = bookRepository.findById(id);
-        if(optionalBook.isPresent()) {
-            return optionalBook.get();
-        } else {
-            return null;
-        }
+//        Optional<Book> optionalBook = bookRepository.findById(id);
+//        if(optionalBook.isPresent()) {
+//            return optionalBook.get();
+//        } else {
+//            return null;
+//        }
+    	return this.bookRepository.findById(id).orElse(null);
     }
     
  
@@ -41,17 +43,12 @@ public class BookService {
  
  //update a book 
  public Book updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
-	 Optional<Book> optionalBook = bookRepository.findById(id);
-	 if(optionalBook.isPresent()) { 
-		 Book book = optionalBook.get();
+	 Book book = this.bookRepository.findById(id).orElse(null);
 	 book.setTitle(title); 	
 	 book.setDescription(desc);
 	 book.setLanguage(lang);
 	 book.setNumberOfPages(numOfPages);
-	 return book;
-	 } else {
-		 return null;
-	 }
+	 return this.bookRepository.save(book);	 
  }
  
  
