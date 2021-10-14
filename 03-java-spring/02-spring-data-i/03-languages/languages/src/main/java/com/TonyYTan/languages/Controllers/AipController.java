@@ -7,23 +7,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.TonYTan.languages.model.Language;
+import com.TonyYTan.languages.service.LangService;
 
 @RestController
 public class AipController {
-	private final 
+	private final LangService LangSer;
 	
-	
+	public AipController(LangService langSer) {
+		this.LangSer = langSer;
+	}
+
 	//create a new language
 	@PostMapping ("/languages")
-	public Language creatLang () {
+	public Language creat (@RequestParam(value = "name") String name, @RequestParam("creator") String creator, @RequestParam(value = "currentVersion") float currentVersion) {
 		//add/create a language to the database
-		return Language;
+		Language lang = new Language (name, creator, currentVersion);
+		return this.LangSer.createLang(lang);
 	}
 	
 	
 	//update a exist language
 	@PutMapping ("language/{id}")
-	public Language updateLang(@PathVariable("id") Long id, @RequestParam("name") String name, @RequestParam("creator") String creator, @RequestParam("currentVersion") float currentVersion) {
-		
+	public Language update(@PathVariable("id") Long id, @RequestParam(value = "name") String name, @RequestParam("creator") String creator, @RequestParam(value = "currentVersion") float currentVersion) {
+		Language lang = this.LangSer.updateLang(id, name, creator, currentVersion);
+		return lang;
 	}
 }
