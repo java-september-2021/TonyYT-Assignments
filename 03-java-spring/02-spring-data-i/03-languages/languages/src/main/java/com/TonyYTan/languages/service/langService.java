@@ -2,14 +2,15 @@ package com.TonyYTan.languages.service;
 
 import org.springframework.stereotype.Service;
 
-import com.TonyYTan.languages.Repository.langRepository;
+import com.TonyYTan.languages.Repository.LangRepository;
 
 @Service
-public class langService {
-	private final langRepository lRepo;
+public class LangService {
+	private final LangRepository LangRepo;
 
-	public langService(langRepository lRepo) {
-		this.lRepo = lRepo;
+	//dependency injection: constructor
+	public LangService(LangRepository langRepo) {
+		this.LangRepo = langRepo;
 	}
 	
 	
