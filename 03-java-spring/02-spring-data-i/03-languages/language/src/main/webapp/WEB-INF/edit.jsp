@@ -17,5 +17,33 @@
 </head>
 <body>
 <h1>Edit the language</h1>
+
+
+<form:form action = "/languages/${language.getId()}/edit" method = "POST" modelAttribute = "language">
+
+<p>
+<form:label path = "name">Name </form:label>
+<form:errors path = "name"/>
+<form:input path = "name"/>
+</p>
+<p>
+<form:label path = "creator">Creator </form:label>
+<form:errors path = "creator"/>
+<form:input path = "creator"/>
+</p>
+<p>
+<form:label path = "currentVersion">Current Version </form:label>
+<form:errors path = "currentVersion"/>
+<form:input path = "currentVersion"/>
+</p>
+
+<input type = "hidden" name = "_method" value = "put">
+<button>Edit Language</button>
+
+<a href = "/languages">Home Page</a>
+
+</form:form>
+
+
 </body>
 </html>

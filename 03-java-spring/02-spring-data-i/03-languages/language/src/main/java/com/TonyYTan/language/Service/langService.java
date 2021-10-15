@@ -26,10 +26,15 @@ public class langService {
 	}
 
 	// create a new language
-	public Language creatLang(String name, String creator, float currentVersion) {
+	public Language createLang(String name, String creator, float currentVersion) {
 		Language lang = new Language(name, creator, currentVersion);
 		return this.langRepo.save(lang);
 	}
+	
+//	//create a new language from Matt S Video
+//	public Language createLang(Language lang) {
+//		return this.langRepo.save(lang);
+//	}
 
 	// update language
 	public Language updateLang(Long id, String name, String creator, float currentVersion) {

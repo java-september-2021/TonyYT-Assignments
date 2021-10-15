@@ -30,10 +30,10 @@
 <tbody>
 <c:forEach items = "${allLanguages}" var = "lang">
 <tr>
-<td>${lang.name}</td>
+<td><a href="display/languages/${lang.id}">${lang.name}</a></td>
 <td>${lang.creator}</td>
 <td>${lang.currentVersion}</td>
-<td><a href = "/languages/{lang.id}/edit">Edit</a> <a href = "/delete/languages/{lang.id}">Delete</a></td>
+<td><a href = "/languages/${lang.getId()}/edit">Edit</a> <a href = "/delete/languages/${lang.getId()}">Delete</a></td>
 </tr>
 </c:forEach>
 </tbody>
@@ -42,7 +42,7 @@
 
 
 <h2>Create New Language</h2>
-<form:form action = "/" method = "POST" modelAttribute = "language">
+<form:form action = "/languages" method = "POST" modelAttribute = "language">
 <p>
 <form:label path = "name">Name </form:label>
 <form:errors path = "name"/>
@@ -58,6 +58,8 @@
 <form:errors path = "currentVersion"/>
 <form:input path = "currentVersion"/>
 </p>
+
+
 <button>Submit New Language</button>
 </form:form>
 </body>
