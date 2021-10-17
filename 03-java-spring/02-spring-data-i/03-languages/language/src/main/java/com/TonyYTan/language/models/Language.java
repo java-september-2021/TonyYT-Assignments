@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "langs")
@@ -17,11 +19,11 @@ public class Language {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	//@Size(min=2, max=20)
+	@Size(min=2, max=20)
 	private String name;
-	// @Size(min=2, max=20)
+	@Size(min=2, max=20)
 	private String creator;
-	//@NotNull
+	@NonNull
 	private float currentVersion;
 
 	@Column(updatable = false)
