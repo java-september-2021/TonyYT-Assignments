@@ -45,4 +45,12 @@ public class songService {
 		Song song = this.songRepo.findById(id).orElse(null);
 		this.songRepo.delete(song);
 	}
+	
+	public List<Song> topTenByRating() {
+		return songRepo.findTop10ByOrderByRatingDesc();
+	}
+	
+	public List<Song> songsContainingArtist(String artist) {
+		return songRepo.findByArtistContaining(artist);
+	}
 }

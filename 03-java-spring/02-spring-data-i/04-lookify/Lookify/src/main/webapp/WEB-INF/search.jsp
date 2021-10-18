@@ -6,12 +6,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="/css/main.css"/>
+<!-- For any Bootstrap that uses JS or jQuery-->
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <title>Search</title>
 </head>
 <body>
 <p><a href= "/dashboard">Dashboard</a></p><br><br>
 
-<table>
+<h2>Songs by artist:  <c:out value = "${artist}"/></h2>
+<table class = "table" border = 1>
 	<thead>
 		<tr>
 			<td>Name</td>
@@ -21,16 +28,16 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach items = "" var = "">
+	
+	<c:forEach items = "${songs}" var = "song">
 		<tr>
-			<td></td>
-		
+			<td>${song.getName()}</td>
+			<td>${song.getRating()}</td>
+			<td><a href = "/${thisSong.getId()}">delete</a></td>
 		</tr>
 		</c:forEach>
+		
 	</tbody>
-
-
-
 </table>
 
 </body>

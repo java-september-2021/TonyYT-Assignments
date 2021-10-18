@@ -15,12 +15,15 @@
 <title>Dashboard</title>
 </head>
 <body>
-<a href = "/">Home Page</a><br>
-<a href = "/song/new"> Add New</a>
-<a href ="">Top Songs</a>
+<h2><a href = "/">Home Page</a><br></h2>
 
-<input type = "text" id = "search" name = "search">
-<button> Search</button>
+<h3><a href="/song/new">Add New</a> | <a href="/topten">Top Ten</a></h3>
+
+<form action="/search" class="float-right" method = "POST">
+		<input type="text" name="artist"/>
+		<button class="btn btn-primary">Search Artists</button>
+</form>
+
 
 <h1>Your Song List</h1>
 <table class = "table" border = 1>

@@ -12,17 +12,30 @@
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<title>Song Detail</title>
+<title>Top Ten Songs</title>
 </head>
+
 <body>
-
 <p><a href= "/dashboard">Dashboard</a></p>
+<h1>Top Ten Songs:</h1>
 
-<h1>Name:    <c:out value = "${thisSong.getName()}"/></h1>
-<h1>Artist:    <c:out value = "${thisSong.getArtist()}"/></h1>
-<h1>Rating(1-10):    <c:out value = "${thisSong.getRating()}"/></h1>
+<table>
+	<tbody>
+	<c:forEach items = "${songs}" var ="song">
+		<tr>
+			<td>${song.getRating()} - </td>
+			<td><a href = "/song/${song.getId()}">${song.getName()}</a></td>
+			<td> - ${song.getArtist()}<td>
+		</tr>
+	</c:forEach>
+	</tbody>
 
-<p><a href = "/${thisSong.getId()}">delete</a></p>
+
+
+</table>
+
+
+
 
 </body>
 </html>

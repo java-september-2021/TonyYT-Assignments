@@ -35,19 +35,24 @@ public class HomeController {
 	}
 	
 	@GetMapping("/song/new")
-	public String getToNewSongPage() {
+	public String getToNewSongPage(Model model) {
+		model.addAttribute("song", this.songSer.findAllSongs());
 		return "addnew.jsp";
 	}
 	
+	//add a song
 	@PostMapping("/song/new")
 	public String addNewSong(@RequestParam(value = "name") String name, @RequestParam (value = "artist") String artist, @RequestParam (value = "rating") Integer rating, @Valid @ModelAttribute("song") Song song, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("song", this.songSer.findAllSongs());
-			return "redirect:/dashboard";
+			return "redirect:/song/new";
+//			return "redirect:/song/new";
 		}
 		this.songSer.addSong(name, artist, rating);
 		return "redirect:/dashboard";
 	}
+	
+	
 	
 	@GetMapping("/song/{id}")
 	public String detail(@PathVariable (value = "id") Long id, Model model) {
@@ -56,12 +61,29 @@ public class HomeController {
 	}
 	
 	
-	//delet a song
+	//delete a song
 	@GetMapping("/{id}")
 	public String deleteThisSong(@PathVariable(value = "id") Long id) {
 		this.songSer.deleteSong(id);
 		return "redirect:/dashboard";
 	}
+	
+	//top ten songs
+	@GetMapping("/topten")
+	public String topTen(Model model) {
+		model.addAttribute("songs", this.songSer.topTenByRating());
+		return "topten.jsp";
+	}
+	
+	
+	//Search
+	@PostMapping("/search")
+	public String search(@RequestParam("artist") String artist, Model model) {
+		model.addAttribute("songs", this.songSer.songsContainingArtist(artist));
+		model.addAttribute("artist",artist);
+		return "search.jsp";
+	}
+	
 	
 	
 }
