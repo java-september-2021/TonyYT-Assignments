@@ -17,7 +17,7 @@
 <body>
 <h1>Create a new license</h1>
 <hr>
-<form:form method = "POST" action = "/newlicense" modelAttribure = "license">
+<form:form method = "POST" action = "/newlicense" modelAttribute = "license">
 <p>
 <form:label path = "person">Select Person</form:label>
 <form:errors path = "person"/> 

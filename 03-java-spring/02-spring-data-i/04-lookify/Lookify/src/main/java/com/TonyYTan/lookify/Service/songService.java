@@ -25,8 +25,12 @@ public class songService {
 	}
 	
 	//add a song
-	public Song addSong(String name, String artist, Integer rating) {
-		Song song = new Song (name, artist, rating);
+//	public Song addSong(String name, String artist, Integer rating) {
+//		Song song = new Song (name, artist, rating);
+//		return this.songRepo.save(song);
+//	}
+	
+	public Song addSong(Song song) {
 		return this.songRepo.save(song);
 	}
 	

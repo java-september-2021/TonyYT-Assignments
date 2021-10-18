@@ -43,16 +43,18 @@ public class Song {
 	private Date updatedBy;
 
 	//constructor
-	public Song(@NotNull @Size(min = 5) String name, @NotNull @Size(min = 5) String artist,
-			@NotNull @Size(min = 1, max = 10) Integer rating) {
-		this.name = name;
-		this.artist = artist;
-		this.rating = rating;
-	}
+
 	
 	public Song() {
 	}
 	
+	public Song(@NotNull @Size(min = 5) String name, @NotNull @Size(min = 5) String artist,
+			@NotNull @Min(1) @Max(10) Integer rating) {
+		this.name = name;
+		this.artist = artist;
+		this.rating = rating;
+	}
+
 	//getters and setters
 
 	public Long getId() {

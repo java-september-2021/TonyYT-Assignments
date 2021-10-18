@@ -15,17 +15,19 @@
 <title>User Details</title>
 </head>
 <body>
-<h1>${person.getFirstName()}  ${person.getLastName()}</h1>
+<h1><c:out value = "${person.getFirstName()}  ${person.getLastName()}"/></h1>
 
 <hr>
 <p>
-License Number:  ${person.getLicense().returnLicenseNumbers }
+License Number:  <c:out value ="${person.getLicense().returnLicenseNumbers()}"/>
 </p>
 
-<p>Expiration Date:  ${person.getLicense().getExpiration_date()}
+<p>Expiration Date:  <c:out value ="${person.getLicense().getExpiration_date()}"/>
 </p>
 
 
-<p>State: ${person.getLicense().getState()}</p>
+<p>State: <c:out value = "${person.getLicense().getState()}"/></p>
+
+<h2><a href = "/">Home Page</a></h2>
 </body>
 </html>

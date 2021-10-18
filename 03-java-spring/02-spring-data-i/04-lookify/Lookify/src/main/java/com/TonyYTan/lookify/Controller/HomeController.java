@@ -34,20 +34,20 @@ public class HomeController {
 	}
 	
 	@GetMapping("/song/new")
-	public String getToNewSongPage(Model model) {
+	public String getToNewSongPage(Model model, @ModelAttribute("song") Song song) {
 		model.addAttribute("song", this.songSer.findAllSongs());
 		return "addnew.jsp";
 	}
 	
 	//add a song
-	@PostMapping("/song/new")
-	public String addNewSong(@RequestParam(value = "name") String name, @RequestParam (value = "artist") String artist, @RequestParam (value = "rating") Integer rating, @Valid @ModelAttribute("song") Song song, BindingResult result, Model model) {
+	@PostMapping("/new")
+	public String addNewSong(@Valid @ModelAttribute("song") Song song, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("song", this.songSer.findAllSongs());
 			return "redirect:/song/new";
 //			return "redirect:/song/new";
 		}
-		this.songSer.addSong(name, artist, rating);
+		this.songSer.addSong(song);
 		return "redirect:/dashboard";
 	}
 	

@@ -1,6 +1,8 @@
 package com.TonyYTan.driverLicense.models;
 
-import java.sql.Date;
+import java.util.Date;
+
+//import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -29,15 +33,15 @@ public class Person {
     private Date createdAt;
     private Date updatedAt;
     
-//    @PrePersist
-//    protected void onCreate() {
-//    	this.createdAt = new Date();
-//    }
-//    
-//    @PreUpdate
-//    protected void onUpdate() {
-//    	this.updatedAt = new Date();
-//    }
+    @PrePersist
+    protected void onCreate() {
+    	this.createdAt = new Date();
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+    	this.updatedAt = new Date();
+    }
     
     @OneToOne(mappedBy="person", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private License license;

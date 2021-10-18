@@ -40,7 +40,7 @@ public class HomeComtroller {
 		this.dService.createPerson(person);
 		return "redirect:/";
 	}
-	
+	  
 	@GetMapping("/licenses/create")
 	public String createLicense(Model model, @ModelAttribute("license") License license) {
 		model.addAttribute("people",this.dService.getUnlicensedPeople());
@@ -61,6 +61,6 @@ public class HomeComtroller {
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("person", this.dService.getOnePerson(id));
-		return "shown.jsp";
+		return "show.jsp";
 	}
 }

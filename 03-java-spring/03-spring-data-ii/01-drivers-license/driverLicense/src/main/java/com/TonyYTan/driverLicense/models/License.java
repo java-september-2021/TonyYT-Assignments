@@ -1,6 +1,8 @@
 package com.TonyYTan.driverLicense.models;
 
-import java.sql.Date;
+import java.util.Date;
+
+//import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,6 +29,7 @@ public class License {
     private Integer number;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expiration_date;
+    @NotNull
     private String state;
     
     @Column(updatable=false)
@@ -32,15 +38,15 @@ public class License {
     @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="person_id")
     private Person person;
-//  @PrePersist
-//  protected void onCreate() {
-//  	this.createdAt = new Date();
-//  }
-//  
-//  @PreUpdate
-//  protected void onUpdate() {
-//  	this.updatedAt = new Date();
-//  }
+  @PrePersist
+  protected void onCreate() {
+  	this.createdAt = new Date();
+  }
+  
+  @PreUpdate
+  protected void onUpdate() {
+  	this.updatedAt = new Date();
+  }
     
     
     public License() {

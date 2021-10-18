@@ -30,7 +30,7 @@
 <tbody>
 <c:forEach items = "${persons}" var = "person">
 <tr>
-<td>${person.getId()}</td>
+<td><a href = "/${person.getId()}">${person.getId()}</a></td>
 <td>${person.getFirstName()}</td>
 <td>${person.getLastName()}</td>
 </tr>

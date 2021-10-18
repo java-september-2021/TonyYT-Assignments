@@ -18,11 +18,11 @@
 <a href = "/">Home Page</a><br><br>
 <h1>Add A New Song</h1>
 
-<form:form action = "/song/new" method = "POST" modelAttribute = "song">
+<form:form action = "/new" method = "POST" modelAttribute = "song">
 <p>
-<form:label path ="song.setName()">Name</form:label>
-<form:errors path = "song.setName()" />
-<form:input path = "song.setName()"/>
+<form:label path ="name">Name</form:label>
+<form:errors path = "name" />
+<form:input path = "name"/>
 </p>
 
 
