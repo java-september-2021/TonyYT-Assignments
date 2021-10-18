@@ -8,12 +8,12 @@
 		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.TonyYTan.driverLicense</groupId>
-	<artifactId>driverLicense</artifactId>
+	<groupId>com.TonyYTan.DojoNinjas</groupId>
+	<artifactId>DojoNinjas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>driverLicense</name>
-	<description>driverLicense</description>
+	<name>DojoNinjas</name>
+	<description>DojoNinjas</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

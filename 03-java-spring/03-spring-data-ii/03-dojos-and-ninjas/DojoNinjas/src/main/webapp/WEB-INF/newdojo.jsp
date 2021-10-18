@@ -12,23 +12,19 @@
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<title>Dojo Page</title>
+<title>New Dojo</title>
 </head>
 <body>
-<h1>All Dojo Location</h1>
 
+<h1>Add A New Dojo Here</h1>
 
-<table>
-	<c:forEach items = "${dojos}" var = "dojo">
-		<tr>
-			<td>${dojo.getName()}</td>
-		</tr>
-	</c:forEach>
-
-</table>
-
-
+<form:form action = "/addnewdojo" method = "POST" modelAttribute = "dojo">
+	<form:label path = "name">Name</form:label>
+	<form:errors path = "name"/>
+	<form:input path = "name"/>
+	
+<button>Submit</button>
+</form:form>
 
 </body>
 </html>
-

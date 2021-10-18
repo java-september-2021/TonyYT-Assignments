@@ -15,15 +15,28 @@
 <title>Dojo Page</title>
 </head>
 <body>
-<h1>All Dojo Location</h1>
-
+<h1>Location Ninjas</h1>
 
 <table>
-	<c:forEach items = "${dojos}" var = "dojo">
+	<thead>
 		<tr>
-			<td>${dojo.getName()}</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Age</td>
 		</tr>
-	</c:forEach>
+	</thead>
+	
+	<tbody>
+		<c:forEach items = "${ninjas}" var = "ninja">
+		<tr>
+			<td>${ninja.getFirstName()}</td>
+			<td>${ninja.getLastName()}</td>
+			<td>${ninja.getAge()}</td>
+		</tr>
+		</c:forEach>
+	</tbody>
+
+
 
 </table>
 
