@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,14 +37,24 @@ public class Ninja {
 	@NotNull
     private int age;
     @Column(updatable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updatedAt;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dojo_id")
     private Dojo dojo;
+    
+    @PrePersist
+    protected void onCreate() {
+    	this.createdAt = new Date();
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+    	this.updatedAt = new Date();
+    }
 
 	public Ninja() {
 	}

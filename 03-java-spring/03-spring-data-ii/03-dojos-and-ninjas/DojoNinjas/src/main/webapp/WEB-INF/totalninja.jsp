@@ -12,22 +12,36 @@
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<title>New Dojo</title>
+<title>Total Ninja List</title>
 </head>
 <body>
 
-<h1>Add A New Dojo Here</h1>
-
-<form:form method = "POST" action = "/addnewdojo" modelAttribute = "dojo">
-	<form:label path = "name">Name</form:label>
-	<form:errors path = "name"/>
-	<form:input path = "name"/>
+<table>
+	<thead>
+		<tr>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Age</td>
+			<td>Dojo Location</td>
+			<td>Action</td>
+		</tr>
+	</thead>
 	
-<button>Submit</button>
-</form:form>
+	<tbody>
+		<c:forEach items = "${ninjas}" var = "ninja">
+		<tr>
+			<td>${ninja.getFirstName()}</td>
+			<td>${ninja.getLastName()}</td>
+			<td>${ninja.getAge()}</td>
+			<td>${ninja.getDojo().getName()}</td>
+			<td><a href="/deleteninja/${ninja.getId()}">Delete</a></td>
+		</tr>
+		</c:forEach>
+	</tbody>
+</table>
 
 <a href = "/">Dojo Location List</a> ||
-<a href = "/ninjatotallist">Total Ninja List</a>
+<a href = "/newninja">Add New Ninja</a> 
 
 </body>
 </html>

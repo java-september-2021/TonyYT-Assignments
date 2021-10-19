@@ -16,7 +16,6 @@
 </head>
 <body>
 <h1>Location Ninjas</h1>
-
 <table>
 	<thead>
 		<tr>
@@ -25,9 +24,8 @@
 			<td>Age</td>
 		</tr>
 	</thead>
-	
 	<tbody>
-		<c:forEach items = "${ninjas}" var = "ninja">
+		<c:forEach items = "${dojoDetail.getNinjas()}" var = "ninja">
 		<tr>
 			<td>${ninja.getFirstName()}</td>
 			<td>${ninja.getLastName()}</td>
@@ -35,12 +33,9 @@
 		</tr>
 		</c:forEach>
 	</tbody>
-
-
-
 </table>
 
-
+<a href = "/">Dojo Location List</a>
 
 </body>
 </html>

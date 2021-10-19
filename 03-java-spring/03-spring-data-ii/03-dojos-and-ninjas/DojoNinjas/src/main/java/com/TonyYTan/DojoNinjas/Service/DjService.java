@@ -12,6 +12,7 @@ import com.TonyYTan.DojoNinjas.models.Ninja;
 
 @Service
 public class DjService {
+	@Autowired
 	private NinjaRepository nRepo;
 	@Autowired 
 	private DojoRepository dRepo;
@@ -40,7 +41,10 @@ public class DjService {
 	}
 	
 	
-	
+	//create a new Ninja
+	public Ninja newNinja(Ninja ninja) {
+		return this.nRepo.save(ninja);
+	}
 	
 	//list all Ninja
 	public List<Ninja> findAllNinjas(){
@@ -52,4 +56,13 @@ public class DjService {
 		return this.nRepo.findById(id).orElse(null);
 	}
 	
+	//delete an Ninja
+	public void deleteThisNinja(Long id) {
+		this.nRepo.deleteById(id);
+	}
+	
+	//delete a Dojo location
+	public void deleteDojo(Long id) {
+		this.dRepo.deleteById(id);;
+	}
 }

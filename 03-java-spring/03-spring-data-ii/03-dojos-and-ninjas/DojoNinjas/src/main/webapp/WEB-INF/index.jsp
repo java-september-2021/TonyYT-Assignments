@@ -21,13 +21,16 @@
 <table>
 	<c:forEach items = "${dojos}" var = "dojo">
 		<tr>
-			<td>${dojo.getName()}</td>
+			<td><a href= "/ninjalist/${dojo.getId()}">${dojo.getName()}</a></td>
+			<td><a href = "/deletedojo/${dojo.getId()}">delete</a></td>
 		</tr>
 	</c:forEach>
 
 </table>
 
-
+<a href = "/newninja">Add New Ninja</a>  ||
+<a href = "/newdojo">Add New Dojo</a>  ||
+<a href = "/ninjatotallist">Total Ninja List</a>
 
 </body>
 </html>
