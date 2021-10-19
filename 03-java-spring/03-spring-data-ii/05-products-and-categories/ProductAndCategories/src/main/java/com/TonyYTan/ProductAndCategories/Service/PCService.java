@@ -15,17 +15,26 @@ public class PCService {
 	@Autowired
 	private ProductRepository pRepo;
     // retrieve an instance of a category using another method in the service.	
-	public Category thisCategory(Long id) {
+	public Category getCategory(Long id) {
 		return this.cRepo.findById(id).orElse(null);
 	}
 	
     // retrieve an instance of a product using another method in the service.	
-	public Product thisProduct(Long id) {
+	public Product getProduct(Long id) {
 		return this.pRepo.findById(id).orElse(null);
 	}
 
     // add the product to this category's list of products
-	public Product addThisProduct() {
-		
+	public Category addThisProduct(Long id, Product product) {
+		Category thisCategory = this.getCategory(id);
+		thisCategory.getProducts().add(product);
+		return this.cRepo.save(thisCategory);
+	}
+	
+	//add the category to this product's list of the category
+	public Product addThisCategory(Long id, Category category) {
+		Product thisProduct = this.getProduct(id);
+		thisProduct.getCategories().add(category);
+		return this.pRepo.save(thisProduct);
 	}
 }
