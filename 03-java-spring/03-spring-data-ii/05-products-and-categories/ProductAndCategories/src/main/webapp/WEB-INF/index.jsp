@@ -5,38 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <!-- YOUR own local CSS -->
 <link rel="stylesheet" href="/css/main.css"/>
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<meta charset="ISO-8859-1">
-<title>Dojo Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1><c:out value ="${dojoDetail.getName()}"/> Location Ninjas</h1>
-<table>
-	<thead>
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Age</td>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items = "${dojoDetail.getNinjas()}" var = "ninja">
-		<tr>
-			<td>${ninja.getFirstName()}</td>
-			<td>${ninja.getLastName()}</td>
-			<td>${ninja.getAge()}</td>
-		</tr>
-		</c:forEach>
-	</tbody>
-</table>
-
-<a href = "/">Dojo Location List</a>
 
 </body>
 </html>
-
