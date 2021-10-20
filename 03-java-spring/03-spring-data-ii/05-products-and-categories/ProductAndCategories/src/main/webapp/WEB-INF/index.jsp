@@ -15,7 +15,27 @@
 <title>Home Page</title>
 </head>
 <body>
-<h1>Home Page</h1>
+<h1>Welcome!</h1>
 
+<h2>Product</h2>
+<p>
+	<c:forEach items = "${products}" var = "product">
+		<a href = "/product/${product.getId()}">${product.getName()}</a> -------<a href = "">Delete</a> <br>
+	</c:forEach>
+</p>
+
+<br><br><br>
+
+<h2>Category</h2>
+<p>
+	<c:forEach items = "${categories}" var = "category">
+		<a>${category.getName()}</a> -------<a href = "/category/${category.getId()}/delete">Delete</a> <br>
+	</c:forEach>
+</p>
+
+
+
+<a href="newproduct">Add A New Product</a> ||
+<a href = "newcategory">Add A New Category</a>
 </body>
 </html>
