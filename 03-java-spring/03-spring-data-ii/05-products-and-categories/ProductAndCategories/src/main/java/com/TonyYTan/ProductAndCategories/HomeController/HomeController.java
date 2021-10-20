@@ -73,8 +73,7 @@ public class HomeController {
 	}
 	
 	
-	
-	//aadd a category to a product
+	//add a category to a product
 	@PostMapping("/product/{id}/category")
 	public String newProductAdd(Model model, @PathVariable ("id") Long id, @ModelAttribute("category") Category category) {
 		//model.addAttribute("thisProduct",this.pcSer.getProduct(id));
@@ -85,6 +84,30 @@ public class HomeController {
 		this.pcSer.addThisCategory(product, category);
 		return "redirect:/product/{id}";
 	}
+	
+	
+	
+	
+	
+	
+	//Go to the page to add product to a category
+	@GetMapping("/category/{id}")
+	public String categoryPro(Model model, @PathVariable("id") Long id, @ModelAttribute("product") Product product){
+		model.addAttribute("thisCategoryProducts", this.pcSer.getCategory(id).getProducts());
+		model.addAttribute("products", this.pcSer.finlAllProduct());
+		model.addAttribute("thisCategory", this.pcSer.getCategory(id));
+		return "addprotocate.jsp";
+	}
+	
+	
+	//add a product to a category
+	@PostMapping("/category/{id}/product")
+	public String newCategoryAdd(Model model, @PathVariable("id") Long id, @ModelAttribute("product") Product product) {
+		Category category = this.pcSer.getCategory(id);
+		this.pcSer.addThisProduct(category, product);
+		return "redirect:/category/{id}";
+	}
+	
 	
 	
 	//delete a category

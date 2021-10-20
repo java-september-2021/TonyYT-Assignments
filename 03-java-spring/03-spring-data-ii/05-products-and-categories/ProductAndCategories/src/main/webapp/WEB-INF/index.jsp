@@ -20,7 +20,7 @@
 <h2>Product</h2>
 <p>
 	<c:forEach items = "${products}" var = "product">
-		<a href = "/product/${product.getId()}">${product.getName()}</a> -------<a href = "">Delete</a> <br>
+		<a href = "/product/${product.getId()}">${product.getName()}</a> -------<a href = "/product/${product.getId()}/delete">Delete</a> <br>
 	</c:forEach>
 </p>
 
@@ -29,7 +29,7 @@
 <h2>Category</h2>
 <p>
 	<c:forEach items = "${categories}" var = "category">
-		<a>${category.getName()}</a> -------<a href = "/category/${category.getId()}/delete">Delete</a> <br>
+		<a href ="/category/${category.getId()}">${category.getName()}</a> -------<a href = "/category/${category.getId()}/delete">Delete</a> <br>
 	</c:forEach>
 </p>
 

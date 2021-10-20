@@ -12,27 +12,28 @@
 <!-- For any Bootstrap that uses JS or jQuery-->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<title>Add This Category to This Product</title>
+<title>Add This Product to this Category</title>
 </head>
 <body>
 
-<h1>${thisProduct.getName()}</h1>
+
+<h1>${thisCategory.getName()}</h1>
 
 <h2>Categories</h2>
 <p>
-	<c:forEach items ="${thisProductCategories}" var = "category">
-		<p>- ${category.getName()} -----<a href = "/category/${category.getId()}/delete">Delete</a></p>
+	<c:forEach items ="${thisCategoryProducts}" var = "product">
+		<p>- ${product.getName()} -----<a href = "/product/${product.getId()}/delete">Delete</a></p>
 	</c:forEach>
 </p>
 
 <h2>Add Category</h2>
 <p>
-	<form:form action = "/product/${thisProduct.getId()}/category" method = "POST" modelAttribute = "category">
-	<form:label path="name">Add Category</form:label>
+	<form:form action = "/category/${thisCategory.getId()}/product" method = "POST" modelAttribute = "product">
+	<form:label path="name">Add Product</form:label>
 	<form:errors path="name" />
 	<form:select path ="name">
-		<c:forEach items = "${categories}" var = "cate">
-		<option value = "${cate.getId()}">${cate.getId()}  --${cate.getName()}</option>
+		<c:forEach items = "${products}" var = "pro">
+		<option value = "${pro.getId()}">${pro.getId()}  --${pro.getName()}</option>
 		</c:forEach>
 	</form:select>
 	
@@ -43,6 +44,7 @@
 
 <br><br>
 <a href = "/">Home Page</a>
+
 
 </body>
 </html>

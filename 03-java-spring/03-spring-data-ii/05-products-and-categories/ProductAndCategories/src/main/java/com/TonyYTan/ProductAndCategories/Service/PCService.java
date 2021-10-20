@@ -58,18 +58,18 @@ public class PCService {
 	}
 
     // add the product to this category's list of products
-	public Category addThisProduct(Long id, Product product) {
-		Category thisCategory = this.getCategory(id);
+	public Category addThisProduct(Category thisCategory, Product product) {
+		//Category thisCategory = this.getCategory(id);
 		thisCategory.getProducts().add(product);
 		return this.cRepo.save(thisCategory);
 	}
 	
 	//add the category to this product's list of the category
-	public Product addThisCategory(Product product, Category category) {
+	public Product addThisCategory(Product thisProduct, Category category) {
 		//Product thisProduct = this.getProduct(id);
-		product.getCategories().add(category);
+		thisProduct.getCategories().add(category);
 		//System.out.println(product.getCategories());
-		return this.pRepo.save(product);
+		return this.pRepo.save(thisProduct);
 	}
 	
 	
