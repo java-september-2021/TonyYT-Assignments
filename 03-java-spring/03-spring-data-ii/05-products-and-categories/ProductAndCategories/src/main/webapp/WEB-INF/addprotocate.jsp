@@ -22,7 +22,7 @@
 <h2>Categories</h2>
 <p>
 	<c:forEach items ="${thisCategoryProducts}" var = "product">
-		<p>- ${product.getName()} -----<a href = "/product/${product.getId()}/delete">Delete</a></p>
+		<p>- ${product.getName()} -----<a href = "/category/${thisCategory.getId()}/${product.getId()}">Delete</a></p>
 	</c:forEach>
 </p>
 

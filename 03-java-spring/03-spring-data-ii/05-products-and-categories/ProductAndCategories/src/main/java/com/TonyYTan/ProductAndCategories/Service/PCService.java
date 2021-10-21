@@ -123,5 +123,14 @@ public class PCService {
 		this.cRepo.save(category);
 		
 	}
+//	
+//	
+//	public void dropThisProd(Long categoryID, Long productID) {
+//		Category thisCategory = this.getCategory(categoryID);
+//		Product thisProduct = this.getProduct(productID);
+//		List<Product> proOfThisCategory = thisCategory.getProducts();
+//		proOfThisCategory.remove(thisProduct);
+//		this.cRepo.save(thisCategory);
+//	}
 	
 }

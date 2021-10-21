@@ -151,4 +151,12 @@ public class HomeController {
 		this.pcSer.dropThisProd(thisCategory, thisProduct);
 		return "redirect:/category/{id}";
 	}
+	
+//	
+//	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
+////		Category thisCategory = this.pcSer.getCategory(categoryId);
+////		Product thisProduct = this.pcSer.getProduct(productId);
+//		this.pcSer.dropThisProd(categoryId, productId);
+//		return "redirect:/category/{id}";
+//	}
 }
