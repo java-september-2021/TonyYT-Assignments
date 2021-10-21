@@ -145,18 +145,16 @@ public class HomeController {
 	
 	//drop the selected product from a category
 	@GetMapping("/category/{id}/{deleteProductId}")
-	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
-		Category thisCategory = this.pcSer.getCategory(categoryId);
-		Product thisProduct = this.pcSer.getProduct(productId);
-		this.pcSer.dropThisProd(thisCategory, thisProduct);
-		return "redirect:/category/{id}";
-	}
-	
-//	
 //	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
-////		Category thisCategory = this.pcSer.getCategory(categoryId);
-////		Product thisProduct = this.pcSer.getProduct(productId);
-//		this.pcSer.dropThisProd(categoryId, productId);
+//		Category thisCategory = this.pcSer.getCategory(categoryId);
+//		Product thisProduct = this.pcSer.getProduct(productId);
+//		this.pcSer.dropThisProd(thisCategory, thisProduct);
 //		return "redirect:/category/{id}";
 //	}
+	
+//	
+	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
+		this.pcSer.dropThisProd(categoryId, productId);
+		return "redirect:/category/{id}";
+	}
 }

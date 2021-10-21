@@ -117,20 +117,20 @@ public class PCService {
 	
 	
 	//drop a product from a category
-	public void dropThisProd(Category category, Product product) {
-		List<Product> proOfThisCategory = category.getProducts();
-		proOfThisCategory.remove(product);
-		this.cRepo.save(category);
-		
-	}
-//	
-//	
-//	public void dropThisProd(Long categoryID, Long productID) {
-//		Category thisCategory = this.getCategory(categoryID);
-//		Product thisProduct = this.getProduct(productID);
-//		List<Product> proOfThisCategory = thisCategory.getProducts();
-//		proOfThisCategory.remove(thisProduct);
-//		this.cRepo.save(thisCategory);
+//	public void dropThisProd(Category category, Product product) {
+//		List<Product> proOfThisCategory = category.getProducts();
+//		proOfThisCategory.remove(product);
+//		this.cRepo.save(category);
+//		
 //	}
+//	
+//	
+	public void dropThisProd(Long categoryID, Long productID) {
+		Category thisCategory = this.getCategory(categoryID);
+		Product thisProduct = this.getProduct(productID);
+		List<Product> proOfThisCategory = thisCategory.getProducts();
+		proOfThisCategory.remove(thisProduct);
+		this.cRepo.save(thisCategory);
+	}
 	
 }
