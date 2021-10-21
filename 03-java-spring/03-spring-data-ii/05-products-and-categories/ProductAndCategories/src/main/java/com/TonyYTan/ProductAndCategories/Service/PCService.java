@@ -57,6 +57,19 @@ public class PCService {
 		return this.pRepo.findById(id).orElse(null);
 	}
 
+	
+	//find all categories that is not assigned to this product
+	public List<Category> findAllUnAssignedCateToThisPro(Product thisProduct){
+		return this.cRepo.findByProductsNotContains(thisProduct);
+	}
+	
+	//find all products that is not assigned to this category
+	public List<Product> findAllUnAssignedProToThisCate(Category thisCate){
+		return this.pRepo.findByCategoriesNotContains(thisCate);
+	}
+	
+	
+	
     // add the product to this category's list of products
 	public Category addThisProduct(Category thisCategory, Product product) {
 		//Category thisCategory = this.getCategory(id);

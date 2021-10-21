@@ -1,5 +1,7 @@
 package com.TonyYTan.ProductAndCategories.HomeController;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.TonyYTan.ProductAndCategories.Service.PCService;
 import com.TonyYTan.ProductAndCategories.models.Category;
@@ -45,7 +48,8 @@ public class HomeController {
 	@PostMapping("/newproduct/add")
 	public String newProductAdd(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 		if(result.hasErrors()) {
-			return "redirect:/newproduct";
+			//System.out.println(result.hasErrors());
+			return "newproduct.jsp";
 		}
 		this.pcSer.createProduct(product);
 		return "redirect:/";
@@ -66,8 +70,9 @@ public class HomeController {
 	//Go to the page to add category to a product
 	@GetMapping("/product/{id}")
 	public String productCate(Model model,@PathVariable ("id") Long id, @ModelAttribute("category") Category category) {
-		model.addAttribute("thisProductCategories",this.pcSer.getProduct(id).getCategories());
-		model.addAttribute("categories",this.pcSer.findAllCategory());
+		Product thisProduct = this.pcSer.getProduct(id);
+		model.addAttribute("thisProductCategories",thisProduct.getCategories());
+		model.addAttribute("categories",this.pcSer.findAllUnAssignedCateToThisPro(thisProduct));
 		model.addAttribute("thisProduct", this.pcSer.getProduct(id));
 		return "addcatetopro.jsp";
 	}
@@ -77,11 +82,11 @@ public class HomeController {
 	@PostMapping("/product/{id}/category")
 	public String newProductAdd(Model model, @PathVariable ("id") Long id, @ModelAttribute("category") Category category) {
 		//model.addAttribute("thisProduct",this.pcSer.getProduct(id));
-		Product product = this.pcSer.getProduct(id);
-		System.out.println("the product is " + product.getName());
-		System.out.println("the select category is " + category.getName());
-		System.out.println("the select category is " + category.getId());
-		this.pcSer.addThisCategory(product, category);
+		Product thisProduct = this.pcSer.getProduct(id);
+//		System.out.println("the product is " + thisProduct.getName());
+//		System.out.println("the select category is " + category.getName());
+//		System.out.println("the select category is " + category.getId());
+		this.pcSer.addThisCategory(thisProduct, category);
 		return "redirect:/product/{id}";
 	}
 	
@@ -93,8 +98,9 @@ public class HomeController {
 	//Go to the page to add product to a category
 	@GetMapping("/category/{id}")
 	public String categoryPro(Model model, @PathVariable("id") Long id, @ModelAttribute("product") Product product){
-		model.addAttribute("thisCategoryProducts", this.pcSer.getCategory(id).getProducts());
-		model.addAttribute("products", this.pcSer.finlAllProduct());
+		Category thisCategory = this.pcSer.getCategory(id);
+		model.addAttribute("thisCategoryProducts", thisCategory.getProducts());
+		model.addAttribute("products", this.pcSer.findAllUnAssignedProToThisCate(thisCategory));
 		model.addAttribute("thisCategory", this.pcSer.getCategory(id));
 		return "addprotocate.jsp";
 	}
@@ -122,5 +128,32 @@ public class HomeController {
 	public String deleteThisProduct(@PathVariable("id") Long id) {
 		this.pcSer.deleteAProduct(id);
 		return "redirect:/";
+	}
+	
+	//drop the select category from a product
+	@GetMapping("/product/{id}/{deleteCategoryId}")
+	public String dropThisCate(@PathVariable("id") Long productId, @PathVariable("deleteCategoryId") Long categoryId) {
+		Product thisProduct = this.pcSer.getProduct(productId);
+		//System.out.println(thisProduct.getName());
+		List<Category> cateOfThisProduct = this.pcSer.findAllCateInAProduct(thisProduct);
+		//System.out.println(cateOfThisProduct);
+		Category thisCategory = this.pcSer.getCategory(categoryId);
+		//System.out.println(thisProduct.getCategories());
+		cateOfThisProduct.remove(thisCategory);
+		thisProduct.setCategories(cateOfThisProduct);
+		//System.out.println(thisProduct.getCategories());
+		return "redirect:/product/{id}";
+	}
+	
+	
+	//drop the selected product from a category
+	@GetMapping("/category/{id}/{deleteProductId}")
+	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
+		Category thisCategory = this.pcSer.getCategory(categoryId);
+		List<Product> prodOfThisCategory = this.pcSer.findAllProdInACategory(thisCategory);
+		Product thisProduct = this.pcSer.getProduct(productId);
+		prodOfThisCategory.remove(thisProduct);
+		thisCategory.setProducts(prodOfThisCategory);
+		return "redirect:/category/{id}";
 	}
 }

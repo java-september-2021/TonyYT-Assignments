@@ -21,18 +21,20 @@
 <h2>Categories</h2>
 <p>
 	<c:forEach items ="${thisProductCategories}" var = "category">
-		<p>- ${category.getName()} -----<a href = "/category/${category.getId()}/delete">Delete</a></p>
+		<p>- ${category.getName()} -----<a href = "/product/${thisProduct.getId()}/${category.getId()}">Delete</a></p>
 	</c:forEach>
 </p>
 
 <h2>Add Category</h2>
 <p>
 	<form:form action = "/product/${thisProduct.getId()}/category" method = "POST" modelAttribute = "category">
-	<form:label path="name">Add Category</form:label>
-	<form:errors path="name" />
-	<form:select path ="name">
+	<form:label path="id">Add Category</form:label>
+	<form:errors path="id" />
+	<form:select path ="id">
 		<c:forEach items = "${categories}" var = "cate">
-		<option value = "${cate.getId()}">${cate.getId()}  --${cate.getName()}</option>
+			<form:option value = "${cate.getId()}">${cate.getId()}  --${cate.getName()}
+		</form:option>
+		
 		</c:forEach>
 	</form:select>
 	

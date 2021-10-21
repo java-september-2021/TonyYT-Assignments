@@ -29,9 +29,9 @@
 <h2>Add Category</h2>
 <p>
 	<form:form action = "/category/${thisCategory.getId()}/product" method = "POST" modelAttribute = "product">
-	<form:label path="name">Add Product</form:label>
-	<form:errors path="name" />
-	<form:select path ="name">
+	<form:label path="id">Add Product</form:label>
+	<form:errors path="id" />
+	<form:select path ="id">
 		<c:forEach items = "${products}" var = "pro">
 		<option value = "${pro.getId()}">${pro.getId()}  --${pro.getName()}</option>
 		</c:forEach>

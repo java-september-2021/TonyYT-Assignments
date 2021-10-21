@@ -3,7 +3,6 @@ package com.TonyYTan.ProductAndCategories.models;
 import java.util.Date;
 import java.util.List;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="products")
@@ -23,6 +24,8 @@ public class Product {
 	   @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
+	   @Size(min = 5, message ="the name can not less than 5")
+	  //@NotNull (message = "the name can not be empty!!!!!!!!!!!!!")
 	    private String name;
 	    private String description;
 	    private float price;
