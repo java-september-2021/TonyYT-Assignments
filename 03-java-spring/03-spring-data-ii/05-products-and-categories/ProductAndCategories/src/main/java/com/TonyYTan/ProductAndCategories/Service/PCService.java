@@ -99,4 +99,29 @@ public class PCService {
 	}
 	
 	
+	//drop a category from a product
+	public void dropThisCate(Product product, Category category) {
+		//System.out.println(thisProduct.getName());
+		List<Category> cateOfThisProduct = product.getCategories();
+		//System.out.println(cateOfThisProduct);
+//		Category thisCategory = this.pcSer.getCategory(categoryId);
+//		System.out.println(thisProduct.getCategories());
+		//System.out.println(cateOfThisProduct);
+		cateOfThisProduct.remove(category);
+		//System.out.println(cateOfThisProduct);
+//		thisProduct.setCategories(cateOfThisProduct);
+//		System.out.println(thisProduct.getCategories());
+		this.pRepo.save(product);
+		//System.out.println(product.getCategories());
+	}
+	
+	
+	//drop a product from a category
+	public void dropThisProd(Category category, Product product) {
+		List<Product> proOfThisCategory = category.getProducts();
+		proOfThisCategory.remove(product);
+		this.cRepo.save(category);
+		
+	}
+	
 }

@@ -133,15 +133,12 @@ public class HomeController {
 	//drop the select category from a product
 	@GetMapping("/product/{id}/{deleteCategoryId}")
 	public String dropThisCate(@PathVariable("id") Long productId, @PathVariable("deleteCategoryId") Long categoryId) {
+//		System.out.println(productId);
+//		System.out.println(categoryId);
 		Product thisProduct = this.pcSer.getProduct(productId);
-		//System.out.println(thisProduct.getName());
-		List<Category> cateOfThisProduct = this.pcSer.findAllCateInAProduct(thisProduct);
-		//System.out.println(cateOfThisProduct);
+//		System.out.println(thisProduct.getCategories());
 		Category thisCategory = this.pcSer.getCategory(categoryId);
-		//System.out.println(thisProduct.getCategories());
-		cateOfThisProduct.remove(thisCategory);
-		thisProduct.setCategories(cateOfThisProduct);
-		//System.out.println(thisProduct.getCategories());
+		this.pcSer.dropThisCate(thisProduct, thisCategory);
 		return "redirect:/product/{id}";
 	}
 	
@@ -150,10 +147,8 @@ public class HomeController {
 	@GetMapping("/category/{id}/{deleteProductId}")
 	public String dropThisPro(@PathVariable("id") Long categoryId, @PathVariable("deleteProductId") Long productId) {
 		Category thisCategory = this.pcSer.getCategory(categoryId);
-		List<Product> prodOfThisCategory = this.pcSer.findAllProdInACategory(thisCategory);
 		Product thisProduct = this.pcSer.getProduct(productId);
-		prodOfThisCategory.remove(thisProduct);
-		thisCategory.setProducts(prodOfThisCategory);
+		this.pcSer.dropThisProd(thisCategory, thisProduct);
 		return "redirect:/category/{id}";
 	}
 }
