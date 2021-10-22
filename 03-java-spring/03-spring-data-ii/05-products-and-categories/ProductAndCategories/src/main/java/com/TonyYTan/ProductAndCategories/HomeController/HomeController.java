@@ -1,7 +1,6 @@
 package com.TonyYTan.ProductAndCategories.HomeController;
 
-import java.util.List;
-
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.TonyYTan.ProductAndCategories.Service.PCService;
+import com.TonyYTan.ProductAndCategories.Service.UserService;
 import com.TonyYTan.ProductAndCategories.models.Category;
 import com.TonyYTan.ProductAndCategories.models.Product;
 
@@ -22,10 +22,17 @@ import com.TonyYTan.ProductAndCategories.models.Product;
 public class HomeController {
 	@Autowired
 	private PCService pcSer;
+	@Autowired
+	private UserService uSer;
 	
 	//go to the home page
 	@GetMapping("/")
-	public String index(Model model) {
+	public String index(Model model, HttpSession session) {
+		if(session.getAttribute("user__id") == null) {
+			System.out.println("Login fail");
+			return "redirect:/landing";
+		}
+		model.addAttribute("thisUser",this.uSer.getOneUser((Long)session.getAttribute("user__id")));
 		model.addAttribute("categories", this.pcSer.findAllCategory());
 		model.addAttribute("products", this.pcSer.finlAllProduct());
 		return "index.jsp";
@@ -149,7 +156,7 @@ public class HomeController {
 //		Category thisCategory = this.pcSer.getCategory(categoryId);
 //		Product thisProduct = this.pcSer.getProduct(productId);
 //		this.pcSer.dropThisProd(thisCategory, thisProduct);
-//		return "redirect:/category/{id}";
+//		return "redirect:/category/{id}";work
 //	}
 	
 //	
@@ -157,4 +164,27 @@ public class HomeController {
 		this.pcSer.dropThisProd(categoryId, productId);
 		return "redirect:/category/{id}";
 	}
+	
+	
+	//log in page
+	@GetMapping("/landing")
+	public String landing(Model model) {
+		model.addAttribute("users", this.uSer.findAllUsers());
+		return "landing.jsp";
+	}
+	
+	@PostMapping("/login")
+	public String login(HttpSession session, @RequestParam ("usersToLogin") Long userId) {
+		session.setAttribute("user__id", userId);
+		System.out.println(userId);
+		return "redirect:/";
+	}
+	
+	//log out
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/landing";
+	}
+	
 }
