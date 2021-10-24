@@ -7,17 +7,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<title>Song Detail</title>
+<title>New Question</title>
 </head>
 <body>
 
-<p><a href= "/dashboard">Dashboard</a></p>
+<h1>What is your question?</h1>
 
-<h1>Name:    <c:out value = "${thisSong.getName()}"/></h1>
-<h1>Artist:    <c:out value = "${thisSong.getArtist()}"/></h1>
-<h1>Rating(1-10):    <c:out value = "${thisSong.getRating()}"/></h1>
+<form:form action="/addnewquestion" method ="POST" modelAttribute = "question">
+	<form:label path="name">Question</form:label>
+	<form:errors path= "name"/>
+	<form:input path="name"/>
+	<br>
+			<form:label path="tags">Tag(s)</form:label>
+			<form:errors path= "tags"/>
+			<form:input  path="tags"/>
+		<button>Submit</button>
+</form:form>
 
-<p><a href = "/${thisSong.getId()}">delete</a></p>
 
+<a href = "/">Dashboard</a>
 </body>
 </html>
