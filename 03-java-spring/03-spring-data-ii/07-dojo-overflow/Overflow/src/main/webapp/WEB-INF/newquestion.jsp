@@ -14,9 +14,9 @@
 <h1>What is your question?</h1>
 
 <form:form action="/addnewquestion" method ="POST" modelAttribute = "question">
-	<form:label path="name">Question</form:label>
-	<form:errors path= "name"/>
-	<form:input path="name"/>
+	<form:label path="text">Question</form:label>
+	<form:errors path= "text"/>
+	<form:input path="text"/>
 	<br>
 			<form:label path="tags">Tag(s)</form:label>
 			<form:errors path= "tags"/>

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1>${thisQuestion.getName()}</h1>
+<h1>${thisQuestion.getText()}</h1>
 
 <br>
 <h2>Tags: </h2>
@@ -22,9 +22,9 @@
 		<thead>Answers</thead>
 		
 		<tbody>
-			<c:forEach items ="answersToThisQuestion" var = "answer">
+			<c:forEach items ="${answersToThisQuestion}" var = "answer">
 				<tr><td>
-					<c:out value="${answer.getName()}"/>
+					${answer.getText()}"
 				</td></tr>
 			</c:forEach>
 		</tbody>
@@ -36,10 +36,10 @@
 
 <div>
 	<h3>Add your answer</h3>
-	<form:form action ="/addanswer/${thisQuestion.getId()}" method="POST" modelAttribute ="answer">
-		<form:label path = "name">Your Answwer:</form:label>
-		<form:errors path = "name"/>
-		<form:input path ="name"/>
+	<form:form action ="/add/answer/${thisQuestion.getId()}" method="POST" modelAttribute ="answer">
+		<form:label path = "text">Your Answwer:</form:label>
+		<form:errors path = "text"/>
+		<form:input path ="text"/>
 		
 		<button>Answer it!!!!</button>
 	</form:form>

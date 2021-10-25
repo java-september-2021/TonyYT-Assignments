@@ -54,7 +54,7 @@ public class HomeController {
 	}
 	
 	
-	@PostMapping("/addanswer/{id}")
+	@PostMapping("/add/answer/{id}")
 	public String addNewAnswer(@Valid @ModelAttribute("answer") Answer answer, BindingResult result, @PathVariable("id") Long id) {
 		if(result.hasErrors()) {
 			System.out.println("Errors here, did not go through");
@@ -62,7 +62,8 @@ public class HomeController {
 		}
 		System.out.println("the answer has bee added");
 		this.mSer.createAnswer(answer);
-//		this.mSer.addAnswerToThisQuestion(answer, id);
+		Question thisQuestion = this.mSer.findQuestion(id);
+		this.mSer.addAnswerToThisQuestion(answer, thisQuestion);
 		return "redirect:/question/{id}";
 	}
 }

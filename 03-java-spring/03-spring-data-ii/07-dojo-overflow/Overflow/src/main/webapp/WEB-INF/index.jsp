@@ -25,7 +25,7 @@
 	<tbody>
 		<c:forEach items = "${questions}" var = "question">
 			<tr>
-				<td> <a href = "/question/${question.getId()}">${question.getName()}</a></td>
+				<td> <a href = "/question/${question.getId()}">${question.getText()}</a></td>
 				<td>
 					<c:forEach items ="${tags}" var = "tag">
 						${tag.getName()},

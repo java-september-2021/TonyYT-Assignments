@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 import javax.validation.constraints.NotBlank;
 
 
@@ -37,7 +37,7 @@ public class Question {
 	
 	
 	@NotBlank (message ="questions can not be blank!!!!!!!!!!!")
-	private String name;
+	private String text;
 	
 	@Column(updatable=false)
 	    private Date createdAt;
@@ -67,65 +67,59 @@ public class Question {
 
 	public Question() {
 	}
+	
+	
 
-		public Long getId() {
-			return id;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-//		public List<Tag> getTemTag() {
-//			return temTag;
-//		}
-//
-//		public void setTemTag(List<Tag> temTag) {
-//			this.temTag = temTag;
-//		}
+	public String getText() {
+		return text;
+	}
 
-		public String getName() {
-			return name;
-		}
+	public void setText(String text) {
+		this.text = text;
+	}
 
-		public void setName(String name) {
-			this.name = name;
-		}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
-		public Date getCreatedAt() {
-			return createdAt;
-		}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 
-		public void setCreatedAt(Date createdAt) {
-			this.createdAt = createdAt;
-		}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
 
-		public Date getUpdatedAt() {
-			return updatedAt;
-		}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 
-		public void setUpdatedAt(Date updatedAt) {
-			this.updatedAt = updatedAt;
-		}
+	public List<Tag> getTags() {
+		return tags;
+	}
 
-		public List<Tag> getTags() {
-			return tags;
-		}
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
 
-		public void setTags(List<Tag> tags) {
-			this.tags = tags;
-		}
+	public List<Answer> getAnswers() {
+		return answers;
+	}
 
-		public List<Answer> getAnswers() {
-			return answers;
-		}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
 
-		public void setAnswers(List<Answer> answers) {
-			this.answers = answers;
-		}
 
-		
-	    
+
 	    
 	    
 }
