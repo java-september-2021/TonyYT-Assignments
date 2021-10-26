@@ -89,11 +89,12 @@ public class MainService {
 	
 	
 	//add this answer to this question
-	public Question addAnswerToThisQuestion(Answer answer, Question question){
-		System.out.println(question.getText());
-		question.getAnswers().add(answer);
+	public Question addAnswerToThisQuestion(Long answerId, Long questionId){
+		Answer thisAnswer = this.aRepo.findById(answerId).orElse(null);
+		Question thisQuestion = this.qRepo.findById(questionId).orElse(null);	
+		thisQuestion.getAnswers().add(thisAnswer);
 //		System.out.println(thisQuestion.getAnswers());
-		return this.qRepo.save(question);
+		return this.qRepo.save(thisQuestion);
 //		System.out.println(thisQuestion.getAnswers());
 	}
 

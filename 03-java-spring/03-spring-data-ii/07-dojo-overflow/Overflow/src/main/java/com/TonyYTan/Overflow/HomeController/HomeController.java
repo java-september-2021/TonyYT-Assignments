@@ -61,9 +61,9 @@ public class HomeController {
 			return "newanswer.jsp";
 		}
 		System.out.println("the answer has bee added");
-		this.mSer.createAnswer(answer);
-		Question thisQuestion = this.mSer.findQuestion(id);
-		this.mSer.addAnswerToThisQuestion(answer, thisQuestion);
+		Answer thisAns = this.mSer.createAnswer(answer);
+		//Question thisQuestion = this.mSer.findQuestion(id);
+		this.mSer.addAnswerToThisQuestion(thisAns.getId(), id);
 		return "redirect:/question/{id}";
 	}
 }
